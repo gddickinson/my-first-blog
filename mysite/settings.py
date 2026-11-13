@@ -110,8 +110,6 @@ TIME_ZONE = 'America/Boise'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
@@ -120,3 +118,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Primary keys stay AutoField, as in blog/migrations/0001_initial.py (Django >= 3.2 would default to BigAutoField).
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
