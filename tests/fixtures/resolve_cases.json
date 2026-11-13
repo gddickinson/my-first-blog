@@ -1,0 +1,139 @@
+[
+ {
+  "path": "/",
+  "match": true,
+  "view": "blog.views.post_list",
+  "name": "post_list",
+  "kwargs": {},
+  "namespace": null
+ },
+ {
+  "path": "/post/1/",
+  "match": true,
+  "view": "blog.views.post_detail",
+  "name": "post_detail",
+  "kwargs": {
+   "pk": "1"
+  },
+  "namespace": null
+ },
+ {
+  "path": "/post/42/edit/",
+  "match": true,
+  "view": "blog.views.post_edit",
+  "name": "post_edit",
+  "kwargs": {
+   "pk": "42"
+  },
+  "namespace": null
+ },
+ {
+  "path": "/post/new/",
+  "match": true,
+  "view": "blog.views.post_new",
+  "name": "post_new",
+  "kwargs": {},
+  "namespace": null
+ },
+ {
+  "path": "/post/new/edit/",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/post/1",
+  "match": false,
+  "append_slash": true
+ },
+ {
+  "path": "/post/new",
+  "match": false,
+  "append_slash": true
+ },
+ {
+  "path": "/post/1/edit",
+  "match": false,
+  "append_slash": true
+ },
+ {
+  "path": "/post/abc/",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/post//",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/post/-1/",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/post/007/",
+  "match": true,
+  "view": "blog.views.post_detail",
+  "name": "post_detail",
+  "kwargs": {
+   "pk": "007"
+  },
+  "namespace": null
+ },
+ {
+  "path": "/post/١٢/",
+  "match": true,
+  "view": "blog.views.post_detail",
+  "name": "post_detail",
+  "kwargs": {
+   "pk": "١٢"
+  },
+  "namespace": null
+ },
+ {
+  "path": "/posts/",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/admin/",
+  "match": true,
+  "view": null,
+  "name": null,
+  "kwargs": {},
+  "namespace": "admin"
+ },
+ {
+  "path": "/admin/blog/post/",
+  "match": true,
+  "view": null,
+  "name": null,
+  "kwargs": {},
+  "namespace": "admin"
+ },
+ {
+  "path": "/admin",
+  "match": false,
+  "append_slash": true
+ },
+ {
+  "path": "/about/",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/post/1/edit/extra/",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "/post/1/\n",
+  "match": false,
+  "append_slash": false
+ },
+ {
+  "path": "",
+  "match": false,
+  "append_slash": false
+ }
+]

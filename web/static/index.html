@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>George's Blog · Django Girls</title>
+<meta name="description" content="George's Django Girls tutorial blog (2017): the blog read-only, how the Django app works, a URL resolver and a code explorer.">
+<link rel="icon" href="static/icon.svg">
+<link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="static/style_app.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<header class="top">
+  <a class="brand" href="#/"><span class="mark"></span>George's Blog</a>
+  <nav class="groups">
+    <a href="#/blog" data-nav="blog">Blog</a>
+    <a href="#/how" data-nav="how">How it works</a>
+    <a href="#/router" data-nav="router">URL router</a>
+    <a href="#/code" data-nav="code">Code</a>
+    <a href="#/about" data-nav="about">About</a>
+  </nav>
+  <div class="right"><a class="small mute" href="https://github.com/gddickinson/my-first-blog" target="_blank" rel="noopener">GitHub</a></div>
+</header>
+<main id="app" tabindex="-1"></main>
+<footer class="foot">George's Blog (Django Girls tutorial) · <a href="https://github.com/gddickinson/my-first-blog">source on GitHub</a> · <span id="mode"></span></footer>
+<script type="module" src="static/main.js"></script>
+</body>
+</html>

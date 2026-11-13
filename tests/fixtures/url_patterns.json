@@ -1,0 +1,45 @@
+[
+ {
+  "regex": "^admin/",
+  "include": "django.contrib.admin",
+  "namespace": "admin",
+  "file": "mysite/urls.py",
+  "line": 20
+ },
+ {
+  "regex": "",
+  "include": "blog.urls",
+  "file": "mysite/urls.py",
+  "line": 21,
+  "children": [
+   {
+    "regex": "^$",
+    "name": "post_list",
+    "view": "blog.views.post_list",
+    "file": "blog/urls.py",
+    "line": 5
+   },
+   {
+    "regex": "^post/(?P<pk>\\d+)/$",
+    "name": "post_detail",
+    "view": "blog.views.post_detail",
+    "file": "blog/urls.py",
+    "line": 6
+   },
+   {
+    "regex": "^post/new/$",
+    "name": "post_new",
+    "view": "blog.views.post_new",
+    "file": "blog/urls.py",
+    "line": 7
+   },
+   {
+    "regex": "^post/(?P<pk>\\d+)/edit/$",
+    "name": "post_edit",
+    "view": "blog.views.post_edit",
+    "file": "blog/urls.py",
+    "line": 8
+   }
+  ]
+ }
+]

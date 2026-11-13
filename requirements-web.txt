@@ -1,0 +1,7 @@
+Django==5.2.19
+asgiref==3.13.0
+sqlparse==0.6.1
+fastapi==0.162.2
+httpx==0.28.1
+pytest==9.2.0
+uvicorn==0.54.0
