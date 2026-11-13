@@ -34,7 +34,16 @@ class PostTests(TestCase):
 
     def test_detail(self):
         r = self.client.get(reverse("post_detail", kwargs={"pk": self.post.pk}))
-        self.assertContains(r, "<h1>Hello</h1>")
+        self.assertContains(r, "<h1>Hello</h1>", html=True)
+
+    def test_pages_are_well_formed_html(self):
+        # Regression: base.html closed </body></html> twice; Django's HTML parser rejected the page.
+        from django.test.html import parse_html
+        self.post.publish()
+        for url in (reverse("post_list"), reverse("post_detail", kwargs={"pk": self.post.pk})):
+            html = self.client.get(url).content.decode()
+            parse_html(html)
+            self.assertEqual(html.count("</html>"), 1)
         self.assertEqual(self.client.get("/post/999/").status_code, 404)
 
     def test_logged_in_user_can_create_and_edit(self):
