@@ -45,3 +45,15 @@ class PostTests(TestCase):
         self.assertIsNotNone(new.published_date)
         self.client.post(reverse("post_edit", kwargs={"pk": new.pk}), {"title": "New 2", "text": "body"})
         self.assertEqual(Post.objects.get(pk=new.pk).title, "New 2")
+
+    def test_anonymous_cannot_create_or_edit(self):
+        # Regression: post_new/post_edit had no login check, so an anonymous POST crashed with a 500
+        # (assigning AnonymousUser to Post.author). They now send visitors to the admin login page.
+        n = Post.objects.count()
+        for url in (reverse("post_new"), reverse("post_edit", kwargs={"pk": self.post.pk})):
+            r = self.client.post(url, {"title": "Spam", "text": "x"})
+            self.assertEqual(r.status_code, 302)
+            self.assertTrue(r["Location"].startswith("/admin/login/"))
+            self.assertEqual(self.client.get(url).status_code, 302)
+        self.assertEqual(Post.objects.count(), n)
+        self.assertEqual(Post.objects.get(pk=self.post.pk).title, "Hello")

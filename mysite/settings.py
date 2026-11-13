@@ -53,6 +53,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+# post_new/post_edit need a logged-in user; the admin login page is the only login page this site has.
+LOGIN_URL = 'admin:login'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
