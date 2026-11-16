@@ -10,3 +10,10 @@
 - Added the web interface (FastAPI shell, port 8256, real Django mounted at /django/, demo DB from the blog's own
   migrations with labelled demo posts), static Pages site (blog read-only, How it works, URL router, code explorer),
   JS port of Django's URL resolver checked against django.urls.resolve on 21 paths.
+
+## 2026-11-16: old SECRET_KEY purged from git history
+- The Django SECRET_KEY once committed in mysite/settings.py was replaced by `REDACTED_OLD_SECRET_KEY` in every
+  commit (git-filter-repo --replace-text; George's request). Current files unchanged (same tree), same commit count,
+  new commit hashes. The key is now read from the DJANGO_SECRET_KEY environment variable.
+- Pre-rewrite mirror kept on the FANTOM backup drive (history_rewrite_2026-11-16). Treat the old key as compromised:
+  rotate it on any server that used it. Older clones and GitHub's cached views of old commit SHAs may still hold it.
